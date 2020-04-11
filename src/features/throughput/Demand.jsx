@@ -1,7 +1,14 @@
 import React from "react";
 import { useRef } from "react";
 
-export const Demand = ({ recipe, inputs, targetSupply, setTargetSupply }) => {
+export const Demand = ({
+  availableRecipes = [],
+  recipe,
+  inputs,
+  targetSupply,
+  setTargetSupply,
+  setCurrentRecipe = console.log,
+}) => {
   const targetSupplyInput = useRef();
 
   function onTargetSupplyChange(event) {
@@ -12,7 +19,27 @@ export const Demand = ({ recipe, inputs, targetSupply, setTargetSupply }) => {
 
   return (
     <div>
-      <p>Recipe: {recipe}</p>
+      <div>
+        <form onSubmit={onTargetSupplyChange}>
+          <label>
+            Recipe:
+            <select
+              defaultValue={recipe}
+              onChange={(e) => setCurrentRecipe(e.target.value)}
+            >
+              <option value={recipe}>{recipe}</option>
+              {availableRecipes.sort().map(
+                (r) =>
+                  r != recipe && (
+                    <option key={r} value={r}>
+                      {r}
+                    </option>
+                  )
+              )}
+            </select>
+          </label>
+        </form>
+      </div>
       <div>
         <form onSubmit={onTargetSupplyChange}>
           <label>
