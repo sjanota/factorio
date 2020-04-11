@@ -1,10 +1,11 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { selectRecipes } from "../recipes/recipesSlice";
+import { selectRecipe } from "../recipes/recipesSlice";
 import { recipeInputDemand } from "./recipeInputDemand";
+import { selectCurrentRecipe } from "../../app/selectors";
 
 const slice = createSlice({
   name: "currentRecipe",
-  initialState: { item: "Copper wire", targetSupply: 60 },
+  initialState: { item: null, targetSupply: 1 },
   reducers: {
     setCurrentRecipe(state, { payload }) {
       state.item = payload;
@@ -18,12 +19,11 @@ const slice = createSlice({
 export const { setCurrentRecipe, setTargetSupply } = slice.actions;
 export default slice.reducer;
 
-export const selectCurrentRecipe = (state) => state.currentRecipe;
-export const selectCurrentRecipeItem = (state) => state.currentRecipe.item;
-export const selectCurrentRecipeTargetSupply = (state) =>
-  state.currentRecipe.targetSupply;
+export const selectCurrentRecipeItem = (state) =>
+  selectCurrentRecipe(state).item;
 
-const selectRecipe = (state, props) => selectRecipes(state)[props.recipe];
+export const selectCurrentRecipeTargetSupply = (state) =>
+  selectCurrentRecipe(state).targetSupply;
 
 export const selectInputsForRecipe = createSelector(
   [selectRecipe, (_, props) => props.targetSupply],

@@ -1,4 +1,4 @@
-export const selectRecipes = () => ({
+const recipes = {
   "Iron plate": { inputs: { "Iron ore": 1 }, duration: 5, products: 1 },
   "Iron gear": { inputs: { "Iron plate": 1 }, duration: 5, products: 1 },
   "Copper plate": { inputs: { "Copper ore": 1 }, duration: 5, products: 1 },
@@ -13,4 +13,9 @@ export const selectRecipes = () => ({
     duration: 2,
     products: 1,
   },
-});
+};
+
+export const selectRecipes = () => recipes;
+
+export const selectRecipe = (state, props) =>
+  selectRecipes(state)[props.recipe];
