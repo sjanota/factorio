@@ -4,12 +4,6 @@ export const MachineType = {
   Furnace: "Furnace",
 };
 
-export const MachineGrades = {
-  [MachineType.Assembly]: [{ speed: 0.5 }, { speed: 0.75 }, { speed: 1.25 }],
-  [MachineType.Drill]: [{ speed: 0.25 }, { speed: 0.5 }],
-  [MachineType.Furnace]: [{ speed: 1 }, { speed: 2 }, { speed: 2 }],
-};
-
 const recipes = {
   "Iron ore": {
     duration: 1,

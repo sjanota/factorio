@@ -1,14 +1,18 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { selectRecipe, MachineGrades } from "../recipes/recipesSlice";
+import { selectRecipe } from "../recipes/recipesSlice";
 import { recipeInputDemand } from "./recipeInputDemand";
 import { requiredMachines } from "./requiredMachines";
+import {
+  selectMachineGradeForRecipe,
+  MachineGrades,
+} from "../machineGrades/machineGradesSlice";
 
 const slice = createSlice({
   name: "demand",
-  initialState: { recipe: null, targetSupply: 1 },
+  initialState: { item: null, targetSupply: 1 },
   reducers: {
     setCurrentRecipe(state, { payload }) {
-      state.recipe = payload;
+      state.item = payload;
     },
     setTargetSupply(state, { payload }) {
       state.targetSupply = payload;
@@ -19,7 +23,7 @@ const slice = createSlice({
 export const { setCurrentRecipe, setTargetSupply } = slice.actions;
 export default slice.reducer;
 
-export const selectCurrentItem = (state) => state.demand.recipe;
+export const selectCurrentItem = (state) => state.demand.item;
 export const selectTopTargetSupply = (state) => state.demand.targetSupply;
 
 export const selectInputsForRecipe = createSelector(
@@ -31,10 +35,9 @@ export const selectInputsForRecipe = createSelector(
 );
 
 export const selectRequiredMachinesForRecipe = createSelector(
-  [selectRecipe, (_, props) => props.targetSupply],
-  (recipe, targetSupply) => {
+  [selectRecipe, selectMachineGradeForRecipe, (_, props) => props.targetSupply],
+  (recipe, machine, targetSupply) => {
     if (!recipe) return;
-    const speed = MachineGrades[recipe.machineType][0].speed;
-    return requiredMachines(recipe, targetSupply, speed);
+    return requiredMachines(recipe, targetSupply, machine.speed);
   }
 );
