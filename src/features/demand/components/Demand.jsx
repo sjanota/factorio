@@ -3,12 +3,11 @@ import { useRef } from "react";
 import { InputsDemandForRecipe } from "./Inputs";
 
 export const Demand = ({
-  availableRecipes = [],
+  availableRecipes,
   recipe,
-  inputs,
   targetSupply,
   setTargetSupply,
-  setCurrentRecipe = console.log,
+  setCurrentRecipe,
 }) => {
   const targetSupplyInput = useRef();
 
@@ -55,7 +54,9 @@ export const Demand = ({
           </label>
         </form>
       </div>
-      <InputsDemandForRecipe recipe={recipe} targetSupply={targetSupply} />
+      {!!recipe && (
+        <InputsDemandForRecipe recipe={recipe} targetSupply={targetSupply} />
+      )}
     </div>
   );
 };

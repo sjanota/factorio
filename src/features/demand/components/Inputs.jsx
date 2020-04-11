@@ -1,6 +1,10 @@
 import React, { useState } from "react";
-import { selectInputsForRecipe } from "../demandSlice";
+import {
+  selectInputsForRecipe,
+  selectRequiredMachinesForRecipe,
+} from "../demandSlice";
 import { connect } from "react-redux";
+import { selectRecipe } from "../../recipes/recipesSlice";
 
 const Input = ({ input, demand }) => {
   const [destruct, setDestruct] = useState(false);
@@ -17,22 +21,26 @@ const Input = ({ input, demand }) => {
   );
 };
 
-const InputsDemand = ({ inputs }) => {
-  if (!inputs) {
-    return null;
-  }
-
+const InputsDemand = ({ inputs, requiredMachines, recipe }) => {
   return (
-    <ul>
-      {Object.entries(inputs).map(([input, demand]) => (
-        <Input key={input} input={input} demand={demand} />
-      ))}
-    </ul>
+    <>
+      <p>
+        Required machines: {requiredMachines} {recipe.machineType}
+      </p>
+      <ul>
+        {inputs &&
+          Object.entries(inputs).map(([input, demand]) => (
+            <Input key={input} input={input} demand={demand} />
+          ))}
+      </ul>
+    </>
   );
 };
 
 const mapState = (state, props) => ({
   inputs: selectInputsForRecipe(state, props),
+  requiredMachines: selectRequiredMachinesForRecipe(state, props),
+  recipe: selectRecipe(state, props),
 });
 
 const InputsDemandForRecipe = connect(mapState)(InputsDemand);
