@@ -1,3 +1,5 @@
-export function requiredMachines(recipe, targetSupply) {
-  return Math.ceil((recipe.duration * targetSupply) / 60 / recipe.products);
+export function requiredMachines(recipe, targetSupply, speed) {
+  return Math.ceil(
+    ((recipe.duration / speed) * targetSupply) / 60 / recipe.products
+  );
 }

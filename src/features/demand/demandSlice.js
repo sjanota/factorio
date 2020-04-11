@@ -1,5 +1,5 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { selectRecipe } from "../recipes/recipesSlice";
+import { selectRecipe, MachineGrades } from "../recipes/recipesSlice";
 import { recipeInputDemand } from "./recipeInputDemand";
 import { requiredMachines } from "./requiredMachines";
 
@@ -34,6 +34,7 @@ export const selectRequiredMachinesForRecipe = createSelector(
   [selectRecipe, (_, props) => props.targetSupply],
   (recipe, targetSupply) => {
     if (!recipe) return;
-    return requiredMachines(recipe, targetSupply);
+    const speed = MachineGrades[recipe.machineType][0].speed;
+    return requiredMachines(recipe, targetSupply, speed);
   }
 );
