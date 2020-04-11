@@ -1,8 +1,8 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import currentRecipe from "../features/demand/currentRecipeSlice";
+import demand from "../features/demand/demandSlice";
 
 const reducer = combineReducers({
-  currentRecipe,
+  demand,
 });
 
 export default reducer;

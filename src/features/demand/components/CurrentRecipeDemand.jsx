@@ -5,7 +5,7 @@ import {
   selectCurrentRecipeTargetSupply,
   setTargetSupply,
   setCurrentRecipe,
-} from "../currentRecipeSlice";
+} from "../demandSlice";
 import { selectRecipes } from "../../recipes/recipesSlice";
 
 const mapState = (state) => ({

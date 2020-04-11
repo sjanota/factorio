@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { selectInputsForRecipe } from "../currentRecipeSlice";
+import { selectInputsForRecipe } from "../demandSlice";
 import { connect } from "react-redux";
 
 const Input = ({ input, demand }) => {
