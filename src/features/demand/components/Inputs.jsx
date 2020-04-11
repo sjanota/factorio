@@ -14,9 +14,7 @@ const Input = ({ input, demand }) => {
       <span onClick={toggleDestruct}>
         {input}: {demand} pcs/min
       </span>
-      {destruct && (
-        <InputsDemandForRecipe recipe={input} targetSupply={demand} />
-      )}
+      {destruct && <InputsDemandForRecipe item={input} targetSupply={demand} />}
     </li>
   );
 };

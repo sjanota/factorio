@@ -9,7 +9,7 @@ import {
 import { selectRecipes } from "../../recipes/recipesSlice";
 
 const mapState = (state) => ({
-  recipe: selectCurrentItem(state),
+  item: selectCurrentItem(state),
   targetSupply: selectTopTargetSupply(state),
   availableRecipes: Object.keys(selectRecipes(state)),
 });

@@ -55,5 +55,4 @@ const recipes = {
 
 export const selectRecipes = () => recipes;
 
-export const selectRecipe = (state, props) =>
-  selectRecipes(state)[props.recipe];
+export const selectRecipe = (state, props) => selectRecipes(state)[props.item];

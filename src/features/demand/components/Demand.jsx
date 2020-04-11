@@ -4,7 +4,7 @@ import { InputsDemandForRecipe } from "./Inputs";
 
 export const Demand = ({
   availableRecipes,
-  recipe,
+  item,
   targetSupply,
   setTargetSupply,
   setCurrentRecipe,
@@ -24,13 +24,13 @@ export const Demand = ({
           <label>
             Recipe:
             <select
-              defaultValue={recipe}
+              defaultValue={item}
               onChange={(e) => setCurrentRecipe(e.target.value)}
             >
-              <option value={recipe}>{recipe}</option>
+              <option value={item}>{item}</option>
               {availableRecipes.sort().map(
                 (r) =>
-                  r !== recipe && (
+                  r !== item && (
                     <option key={r} value={r}>
                       {r}
                     </option>
@@ -54,8 +54,8 @@ export const Demand = ({
           </label>
         </form>
       </div>
-      {!!recipe && (
-        <InputsDemandForRecipe recipe={recipe} targetSupply={targetSupply} />
+      {!!item && (
+        <InputsDemandForRecipe item={item} targetSupply={targetSupply} />
       )}
     </div>
   );

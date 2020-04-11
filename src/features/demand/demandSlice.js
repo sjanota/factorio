@@ -2,10 +2,7 @@ import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { selectRecipe } from "../recipes/recipesSlice";
 import { recipeInputDemand } from "./recipeInputDemand";
 import { requiredMachines } from "./requiredMachines";
-import {
-  selectMachineGradeForRecipe,
-  MachineGrades,
-} from "../machineGrades/machineGradesSlice";
+import { selectMachineGradeForRecipe } from "../machineGrades/machineGradesSlice";
 
 const slice = createSlice({
   name: "demand",
