@@ -22,10 +22,13 @@ export const selectCurrentRecipe = (state) => state.currentRecipe;
 export const selectCurrentRecipeItem = (state) => state.currentRecipe.item;
 export const selectCurrentRecipeTargetSupply = (state) =>
   state.currentRecipe.targetSupply;
-export const selectInputs = createSelector(
-  [selectRecipes, selectCurrentRecipe],
-  (recipes, currentRecipe) => {
-    const recipe = recipes[currentRecipe.item];
-    return recipeInputDemand(recipe, currentRecipe.targetSupply);
+
+const selectRecipe = (state, props) => selectRecipes(state)[props.recipe];
+
+export const selectInputsForRecipe = createSelector(
+  [selectRecipe, (_, props) => props.targetSupply],
+  (recipe, targetSupply) => {
+    if (!recipe) return;
+    return recipeInputDemand(recipe, targetSupply);
   }
 );
