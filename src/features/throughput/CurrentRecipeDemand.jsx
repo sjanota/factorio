@@ -1,10 +1,20 @@
 import { connect } from "react-redux";
 import { Demand } from "./Demand";
-import { selectCurrentRecipe, selectInputs } from "./currentRecipeSlice";
+import {
+  selectInputs,
+  selectCurrentRecipeItem,
+  selectCurrentRecipeTargetSupply,
+  setTargetSupply,
+} from "./currentRecipeSlice";
 
 const mapState = (state) => ({
-  recipe: selectCurrentRecipe(state),
+  recipe: selectCurrentRecipeItem(state),
   inputs: selectInputs(state),
+  targetSupply: selectCurrentRecipeTargetSupply(state),
 });
 
-export const CurrentRecipeDemand = connect(mapState)(Demand);
+const mapDispatch = {
+  setTargetSupply,
+};
+
+export const CurrentRecipeDemand = connect(mapState, mapDispatch)(Demand);
