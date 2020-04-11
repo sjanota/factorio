@@ -3,11 +3,11 @@ import { selectRecipe } from "../recipes/recipesSlice";
 import { recipeInputDemand } from "./recipeInputDemand";
 
 const slice = createSlice({
-  name: "currentRecipe",
-  initialState: { item: null, targetSupply: 1 },
+  name: "demand",
+  initialState: { recipe: null, targetSupply: 1 },
   reducers: {
     setCurrentRecipe(state, { payload }) {
-      state.item = payload;
+      state.recipe = payload;
     },
     setTargetSupply(state, { payload }) {
       state.targetSupply = payload;
@@ -18,10 +18,8 @@ const slice = createSlice({
 export const { setCurrentRecipe, setTargetSupply } = slice.actions;
 export default slice.reducer;
 
-export const selectCurrentRecipeItem = (state) => state.demand.item;
-
-export const selectCurrentRecipeTargetSupply = (state) =>
-  state.demand.targetSupply;
+export const selectCurrentItem = (state) => state.demand.recipe;
+export const selectTopTargetSupply = (state) => state.demand.targetSupply;
 
 export const selectInputsForRecipe = createSelector(
   [selectRecipe, (_, props) => props.targetSupply],

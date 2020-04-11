@@ -1,16 +1,16 @@
 import { connect } from "react-redux";
 import { Demand } from "./Demand";
 import {
-  selectCurrentRecipeItem,
-  selectCurrentRecipeTargetSupply,
   setTargetSupply,
   setCurrentRecipe,
+  selectCurrentItem,
+  selectTopTargetSupply,
 } from "../demandSlice";
 import { selectRecipes } from "../../recipes/recipesSlice";
 
 const mapState = (state) => ({
-  recipe: selectCurrentRecipeItem(state),
-  targetSupply: selectCurrentRecipeTargetSupply(state),
+  recipe: selectCurrentItem(state),
+  targetSupply: selectTopTargetSupply(state),
   availableRecipes: Object.keys(selectRecipes(state)),
 });
 
