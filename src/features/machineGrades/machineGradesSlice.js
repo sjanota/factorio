@@ -2,9 +2,20 @@ import { createSlice, createSelector } from "@reduxjs/toolkit";
 import { MachineType, selectRecipe } from "../recipes/recipesSlice";
 
 export const MachineGrades = {
-  [MachineType.Assembly]: [{ speed: 0.5 }, { speed: 0.75 }, { speed: 1.25 }],
-  [MachineType.Drill]: [{ speed: 0.25 }, { speed: 0.5 }],
-  [MachineType.Furnace]: [{ speed: 1 }, { speed: 2 }, { speed: 2 }],
+  [MachineType.Assembly]: [
+    { speed: 0.5, name: "Mk1" },
+    { speed: 0.75, name: "Mk2" },
+    { speed: 1.25, name: "Mk3" },
+  ],
+  [MachineType.Drill]: [
+    { speed: 0.25, name: "Burning" },
+    { speed: 0.5, name: "Electric" },
+  ],
+  [MachineType.Furnace]: [
+    { speed: 1, name: "Stone" },
+    { speed: 2, name: "Steel" },
+    { speed: 2, name: "Electric" },
+  ],
 };
 
 const slice = createSlice({
@@ -13,14 +24,14 @@ const slice = createSlice({
     Object.values(MachineType).map((t) => [t, 0])
   ),
   reducers: {
-    useGrade(state, { payload }) {
+    setGrade(state, { payload }) {
       const { type, grade } = payload;
       state[type] = grade;
     },
   },
 });
 
-export const { useGrade } = slice.actions;
+export const { setGrade } = slice.actions;
 export default slice.reducer;
 
 export const selectMachineGrades = (state) => state.machineGrades;
