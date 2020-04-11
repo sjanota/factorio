@@ -1,5 +1,5 @@
 import React from "react";
-import { CurrentRecipeDemand } from "../features/throughput/CurrentRecipeDemand";
+import { CurrentRecipeDemand } from "../features/demand/components/CurrentRecipeDemand";
 
 function App() {
   return (

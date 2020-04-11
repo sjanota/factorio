@@ -5,10 +5,10 @@ import {
   selectCurrentRecipeTargetSupply,
   setTargetSupply,
   setCurrentRecipe,
-} from "./currentRecipeSlice";
-import { selectRecipes } from "../recipes/recipesSlice";
+} from "../currentRecipeSlice";
+import { selectRecipes } from "../../recipes/recipesSlice";
 
-const mapState = (state, props) => ({
+const mapState = (state) => ({
   recipe: selectCurrentRecipeItem(state),
   targetSupply: selectCurrentRecipeTargetSupply(state),
   availableRecipes: Object.keys(selectRecipes(state)),
