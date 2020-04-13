@@ -12,7 +12,7 @@ import { selectRecipes } from "../../recipes/recipesSlice";
 
 export const DemandCalculator = () => {
   return (
-    <Card>
+    <Card className="m-1" bg="light">
       <Card.Header>Demand calculator</Card.Header>
       <Card.Body>
         <CurrentRecipeForm />
