@@ -7,11 +7,11 @@ import {
 import { MachineType } from "../../recipes/recipesSlice";
 import { connect } from "react-redux";
 import { Form, Row, Col, Card } from "react-bootstrap";
+import CollapsibleCard from "../../../components/CollapsibleCard";
 
 const MachineGradesChoser = ({ currentMachineGrades, setGrade }) => {
   return (
-    <Card className="m-1" bg="light">
-      <Card.Header>Machine grades</Card.Header>
+    <CollapsibleCard header="Machine grades" className="m-1" bg="light">
       <Card.Body>
         <Form>
           {Object.keys(MachineType).map((type) => (
@@ -37,7 +37,7 @@ const MachineGradesChoser = ({ currentMachineGrades, setGrade }) => {
           ))}
         </Form>
       </Card.Body>
-    </Card>
+    </CollapsibleCard>
   );
 };
 
