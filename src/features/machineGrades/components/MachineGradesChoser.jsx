@@ -16,10 +16,10 @@ const MachineGradesChoser = ({ currentMachineGrades, setGrade }) => {
         <Form>
           {Object.keys(MachineType).map((type) => (
             <Form.Group key={type} as={Row}>
-              <Form.Label column sm={4}>
-                {type} grade
+              <Form.Label column sm={2}>
+                {type}
               </Form.Label>
-              <Col sm={8} className="d-flex align-items-center">
+              <Col className="d-flex align-items-center">
                 <Form.Control
                   as="select"
                   custom
