@@ -2,6 +2,8 @@ import React from "react";
 import { CurrentRecipeDemand } from "../features/demand/components/CurrentRecipeDemand";
 import { CurrentMachineGradesChoser } from "../features/machineGrades/components/MachineGradesChoser";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function App() {
   return (
     <div className="App">
