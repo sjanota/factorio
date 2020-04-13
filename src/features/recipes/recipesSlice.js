@@ -7,7 +7,7 @@ export const MachineType = {
 export const recipes = {
   "Logistic science pack": {
     inputs: { Inserter: 1, "Transport belt": 1 },
-    duration: 0.5,
+    duration: 6,
     products: 1,
     machineType: MachineType.Assembly,
   },

@@ -14,6 +14,7 @@ import {
 import { selectRecipes, selectRecipe } from "../../recipes/recipesSlice";
 
 import "./DemandCalculator.css";
+import { requiredBelt } from "../requiredBelt";
 
 export const DemandCalculator = () => {
   return (
@@ -132,8 +133,9 @@ const mapState = (state, props) => ({
 const IngredientsForItem = connect(mapState)(Ingredients);
 
 const IngredientsRow = ({ item, targetSupply }) => {
+  const beltType = requiredBelt(targetSupply);
   return (
-    <ListGroup.Item>
+    <ListGroup.Item className={`belt-${beltType.toLowerCase()}`}>
       <Row>
         <Col sm={5}>{item}</Col>
         <Col sm={4}>

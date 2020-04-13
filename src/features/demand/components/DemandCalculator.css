@@ -1,3 +1,18 @@
 .demand-calculator .list-group-item {
   background-color: inherit;
 }
+.demand-calculator .list-group-item.belt-normal {
+  background-color: rgb(255, 165, 0, 0.2);
+}
+
+.demand-calculator .list-group-item.belt-fast {
+  background-color: rgb(255, 0, 0, 0.2);
+}
+
+.demand-calculator .list-group-item.belt-express {
+  background-color: rgb(0, 0, 255, 0.2);
+}
+
+.demand-calculator .list-group-item.belt-overloaded {
+  background-color: rgb(0, 0, 0, 0.2);
+}
