@@ -4,7 +4,7 @@ export const MachineType = {
   Furnace: "Furnace",
 };
 
-const recipes = {
+export const recipes = {
   "Iron ore": {
     duration: 1,
     products: 1,
@@ -21,7 +21,7 @@ const recipes = {
     products: 1,
     machineType: MachineType.Furnace,
   },
-  "Iron gear": {
+  "Iron gear wheel": {
     inputs: { "Iron plate": 2 },
     duration: 0.5,
     products: 1,
@@ -46,8 +46,14 @@ const recipes = {
     machineType: MachineType.Assembly,
   },
   "Logistic science pack": {
-    inputs: { "Copper plate": 1, "Iron gear": 1 },
+    inputs: { "Copper plate": 1, "Iron gear wheel": 1 },
     duration: 5,
+    products: 1,
+    machineType: MachineType.Assembly,
+  },
+  "Transport belt": {
+    inputs: { "Iron plate": 1, "Iron gear wheel": 1 },
+    duration: 0.5,
     products: 1,
     machineType: MachineType.Assembly,
   },

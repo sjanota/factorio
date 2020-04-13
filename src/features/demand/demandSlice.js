@@ -31,6 +31,14 @@ export const selectInputsForRecipe = createSelector(
   }
 );
 
+export const selectAllIngredientsDemandForItem = createSelector(
+  [selectRecipe, (_, props) => props.targetSupply],
+  (recipe, targetSupply) => {
+    if (!recipe || !recipe.inputs) return;
+    return recipeInputDemand(recipe, targetSupply);
+  }
+);
+
 export const selectRequiredMachinesForRecipe = createSelector(
   [selectRecipe, selectMachineGradeForRecipe, (_, props) => props.targetSupply],
   (recipe, machine, targetSupply) => {
