@@ -66,7 +66,7 @@ export const recipes = {
   "Transport belt": {
     inputs: { "Iron plate": 1, "Iron gear wheel": 1 },
     duration: 0.5,
-    products: 1,
+    products: 2,
     machineType: MachineType.Assembly,
   },
 };
