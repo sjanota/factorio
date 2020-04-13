@@ -9,6 +9,7 @@ import {
   selectTopTargetSupply,
   selectRequiredMachinesForRecipe,
   selectInputsForRecipe,
+  selectAllIngredientsDemandForItem,
 } from "../demandSlice";
 import { selectRecipes, selectRecipe } from "../../recipes/recipesSlice";
 
@@ -125,7 +126,7 @@ const Ingredients = ({ ingredients }) => {
 };
 
 const mapState = (state, props) => ({
-  ingredients: selectInputsForRecipe(state, props),
+  ingredients: selectAllIngredientsDemandForItem(state, props),
 });
 
 const IngredientsForItem = connect(mapState)(Ingredients);

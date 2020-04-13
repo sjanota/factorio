@@ -1,8 +1,9 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { selectRecipe } from "../recipes/recipesSlice";
+import { selectRecipe, selectRecipes } from "../recipes/recipesSlice";
 import { recipeInputDemand } from "./recipeInputDemand";
 import { requiredMachines } from "./requiredMachines";
 import { selectMachineGradeForRecipe } from "../machineGrades/machineGradesSlice";
+import { gatherAllRecipeDemands } from "./gatherAllRecipeDemands";
 
 const slice = createSlice({
   name: "demand",
@@ -32,10 +33,10 @@ export const selectInputsForRecipe = createSelector(
 );
 
 export const selectAllIngredientsDemandForItem = createSelector(
-  [selectRecipe, (_, props) => props.targetSupply],
-  (recipe, targetSupply) => {
+  [selectRecipe, selectRecipes, (_, props) => props.targetSupply],
+  (recipe, availableRecipes, targetSupply) => {
     if (!recipe || !recipe.inputs) return;
-    return recipeInputDemand(recipe, targetSupply);
+    return gatherAllRecipeDemands(recipe, availableRecipes, targetSupply);
   }
 );
 

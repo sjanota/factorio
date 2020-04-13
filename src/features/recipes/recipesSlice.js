@@ -5,6 +5,18 @@ export const MachineType = {
 };
 
 export const recipes = {
+  "Logistic science pack": {
+    inputs: { Inserter: 1, "Transport belt": 1 },
+    duration: 0.5,
+    products: 1,
+    machineType: MachineType.Assembly,
+  },
+  Inserter: {
+    inputs: { "Electronic circuit": 1, "Iron plate": 1, "Iron gear wheel": 1 },
+    duration: 0.5,
+    products: 1,
+    machineType: MachineType.Assembly,
+  },
   "Iron ore": {
     duration: 1,
     products: 1,
@@ -45,7 +57,7 @@ export const recipes = {
     products: 1,
     machineType: MachineType.Assembly,
   },
-  "Logistic science pack": {
+  "Automation science pack": {
     inputs: { "Copper plate": 1, "Iron gear wheel": 1 },
     duration: 5,
     products: 1,
