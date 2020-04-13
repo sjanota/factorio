@@ -11,7 +11,12 @@ import CollapsibleCard from "../../../components/CollapsibleCard";
 
 const MachineGradesChoser = ({ currentMachineGrades, setGrade }) => {
   return (
-    <CollapsibleCard header="Machine grades" className="m-1" bg="light">
+    <CollapsibleCard
+      header="Machine grades"
+      className="m-1"
+      bg="light"
+      initallyCollapsed={true}
+    >
       <Card.Body>
         <Form>
           {Object.keys(MachineType).map((type) => (
