@@ -6,28 +6,38 @@ import {
 } from "../machineGradesSlice";
 import { MachineType } from "../../recipes/recipesSlice";
 import { connect } from "react-redux";
+import { Form, Row, Col, Card } from "react-bootstrap";
 
 const MachineGradesChoser = ({ currentMachineGrades, setGrade }) => {
   return (
-    <>
-      {Object.keys(MachineType).map((type) => (
-        <div key={type}>
-          <label>
-            {type} grade:
-            <select
-              value={currentMachineGrades[type]}
-              onChange={(e) => setGrade({ type, grade: e.target.value })}
-            >
-              {MachineGrades[type].map((grade, idx) => (
-                <option key={grade.name} value={idx}>
-                  {grade.name}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-      ))}
-    </>
+    <Card className="m-1" bg="light">
+      <Card.Header>Machine grades</Card.Header>
+      <Card.Body>
+        <Form>
+          {Object.keys(MachineType).map((type) => (
+            <Form.Group key={type} as={Row}>
+              <Form.Label column sm={4}>
+                {type} grade
+              </Form.Label>
+              <Col sm={8} className="d-flex align-items-center">
+                <Form.Control
+                  as="select"
+                  custom
+                  value={currentMachineGrades[type]}
+                  onChange={(e) => setGrade({ type, grade: e.target.value })}
+                >
+                  {MachineGrades[type].map((grade, idx) => (
+                    <option key={grade.name} value={idx}>
+                      {grade.name}
+                    </option>
+                  ))}
+                </Form.Control>
+              </Col>
+            </Form.Group>
+          ))}
+        </Form>
+      </Card.Body>
+    </Card>
   );
 };
 
