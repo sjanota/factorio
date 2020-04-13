@@ -47,6 +47,7 @@ export const ItemAndSupplyForm = ({
               step="1"
               defaultValue={targetSupply}
               ref={targetSupplyInput}
+              onBlur={onTargetSupplyChange}
             />
             <InputGroup.Append>
               <InputGroup.Text>
