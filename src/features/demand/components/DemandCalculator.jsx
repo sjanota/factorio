@@ -1,18 +1,22 @@
 import React, { useRef } from "react";
-import { Card, Form, Row, Col, InputGroup } from "react-bootstrap";
-import { InputsDemandForRecipe } from "./Inputs";
+import { Card, Form, Col, InputGroup, ListGroup, Row } from "react-bootstrap";
+import { RequiredMachinesForItem } from "./Inputs";
 import { connect } from "react-redux";
 import {
   setTargetSupply,
   setCurrentRecipe,
   selectCurrentItem,
   selectTopTargetSupply,
+  selectRequiredMachinesForRecipe,
+  selectInputsForRecipe,
 } from "../demandSlice";
-import { selectRecipes } from "../../recipes/recipesSlice";
+import { selectRecipes, selectRecipe } from "../../recipes/recipesSlice";
+
+import "./DemandCalculator.css";
 
 export const DemandCalculator = () => {
   return (
-    <Card className="m-1" bg="light">
+    <Card className="m-1 demand-calculator" bg="light">
       <Card.Header>Demand calculator</Card.Header>
       <Card.Body>
         <CurrentRecipeForm />
@@ -23,9 +27,7 @@ export const DemandCalculator = () => {
 };
 
 const ListIngredients = ({ item, targetSupply }) => {
-  return (
-    item && <InputsDemandForRecipe item={item} targetSupply={targetSupply} />
-  );
+  return item && <IngredientsForItem item={item} targetSupply={targetSupply} />;
 };
 
 const ListIngredientsForCurrentItem = connect((state) => ({
@@ -50,13 +52,11 @@ const RecipeForm = ({
 
   return (
     <Form onSubmit={onTargetSupplyChange}>
-      <Form.Group as={Row}>
-        <Form.Label column sm={4}>
-          Recipe
-        </Form.Label>
-        <Col sm={8}>
+      <Form.Row>
+        <Form.Group as={Col} sm={5} className="mb-0">
           <Form.Control
             as="select"
+            placeholder="Item"
             custom
             defaultValue={item}
             onChange={(e) => setCurrentRecipe(e.target.value)}
@@ -71,38 +71,77 @@ const RecipeForm = ({
                 )
             )}
           </Form.Control>
-        </Col>
-      </Form.Group>
-      <Form.Group as={Row}>
-        <Form.Label column sm={4}>
-          Target supply
-        </Form.Label>
-        <Col sm={8}>
+        </Form.Group>
+        <Form.Group as={Col} sm={4} className="mb-0">
           <InputGroup>
             <Form.Control
               type="number"
+              placeholder="Target Supply"
               step="1"
               defaultValue={targetSupply}
               ref={targetSupplyInput}
             />
             <InputGroup.Append>
-              <InputGroup.Text>pcs/min</InputGroup.Text>
+              <InputGroup.Text>
+                <small>pcs/min</small>
+              </InputGroup.Text>
             </InputGroup.Append>
           </InputGroup>
+        </Form.Group>
+        <Col className="d-flex align-items-center">
+          <RequiredMachinesForItem item={item} targetSupply={targetSupply} />
         </Col>
-      </Form.Group>
+      </Form.Row>
     </Form>
   );
 };
 
 const CurrentRecipeForm = connect(
-  (state) => ({
+  (state, props) => ({
     item: selectCurrentItem(state),
     targetSupply: selectTopTargetSupply(state),
     availableRecipes: Object.keys(selectRecipes(state)),
+    requiredMachines: selectRequiredMachinesForRecipe(state, props),
+    recipe: selectRecipe(state, props),
   }),
   {
     setTargetSupply,
     setCurrentRecipe,
   }
 )(RecipeForm);
+
+const Ingredients = ({ ingredients }) => {
+  return (
+    <ListGroup className="list-group-flush">
+      {Object.entries(ingredients).map(([ingredient, targetSupply]) => (
+        <IngredientsRow
+          key={ingredient}
+          item={ingredient}
+          targetSupply={targetSupply}
+        />
+      ))}
+    </ListGroup>
+  );
+};
+
+const mapState = (state, props) => ({
+  ingredients: selectInputsForRecipe(state, props),
+});
+
+const IngredientsForItem = connect(mapState)(Ingredients);
+
+const IngredientsRow = ({ item, targetSupply }) => {
+  return (
+    <ListGroup.Item>
+      <Row>
+        <Col sm={5}>{item}</Col>
+        <Col sm={4}>
+          {targetSupply} <small>pcs/min</small>
+        </Col>
+        <Col>
+          <RequiredMachinesForItem item={item} targetSupply={targetSupply} />
+        </Col>
+      </Row>
+    </ListGroup.Item>
+  );
+};

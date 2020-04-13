@@ -39,6 +39,7 @@ export const selectMachineGrades = (state) => state.machineGrades;
 export const selectMachineGradeForRecipe = createSelector(
   [selectMachineGrades, selectRecipe],
   (state, recipe) => {
+    if (!recipe) return;
     const idx = state[recipe.machineType];
     return MachineGrades[recipe.machineType][idx];
   }

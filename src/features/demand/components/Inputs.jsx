@@ -19,12 +19,9 @@ const Input = ({ input, demand }) => {
   );
 };
 
-const InputsDemand = ({ inputs, requiredMachines, recipe }) => {
+const InputsDemand = ({ inputs, item, targetSupply }) => {
   return (
     <>
-      <p>
-        Required machines: {requiredMachines} {recipe.machineType}
-      </p>
       <ul>
         {inputs &&
           Object.entries(inputs).map(([input, demand]) => (
@@ -35,10 +32,22 @@ const InputsDemand = ({ inputs, requiredMachines, recipe }) => {
   );
 };
 
-const mapState = (state, props) => ({
-  inputs: selectInputsForRecipe(state, props),
+const RequiredMachines = ({ requiredMachines, recipe }) => {
+  if (!recipe) return null;
+  return (
+    <span>
+      {requiredMachines} {recipe.machineType}
+    </span>
+  );
+};
+
+export const RequiredMachinesForItem = connect((state, props) => ({
   requiredMachines: selectRequiredMachinesForRecipe(state, props),
   recipe: selectRecipe(state, props),
+}))(RequiredMachines);
+
+const mapState = (state, props) => ({
+  inputs: selectInputsForRecipe(state, props),
 });
 
 const InputsDemandForRecipe = connect(mapState)(InputsDemand);
