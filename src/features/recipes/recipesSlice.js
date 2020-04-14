@@ -5,6 +5,58 @@ export const MachineType = {
 };
 
 export const recipes = {
+  "Military science pack": {
+    inputs: { Wall: 2, Grenade: 1, "Piercing rounds magazine": 1 },
+    duration: 0.5,
+    products: 1,
+    machineType: MachineType.Assembly,
+  },
+  Stone: {
+    duration: 1,
+    products: 1,
+    machineType: MachineType.Furnace,
+  },
+  Coal: {
+    duration: 1,
+    products: 1,
+    machineType: MachineType.Furnace,
+  },
+  "Stone brick": {
+    inputs: { Stone: 2 },
+    duration: 3.2,
+    products: 1,
+    machineType: MachineType.Furnace,
+  },
+  Wall: {
+    inputs: { "Stone brick": 5 },
+    duration: 0.5,
+    products: 1,
+    machineType: MachineType.Assembly,
+  },
+  Grenade: {
+    inputs: { Coal: 10, "Iron plate": 5 },
+    duration: 8,
+    products: 1,
+    machineType: MachineType.Assembly,
+  },
+  "Piercing rounds magazine": {
+    inputs: { "Copper plate": 5, "Firearm magazine": 1, "Steel plate": 1 },
+    duration: 3,
+    products: 1,
+    machineType: MachineType.Assembly,
+  },
+  "Steel plate": {
+    inputs: { "Iron plate": 5 },
+    duration: 16,
+    products: 1,
+    machineType: MachineType.Furnace,
+  },
+  "Firearm magazine": {
+    inputs: { "Iron plate": 4 },
+    duration: 1,
+    products: 1,
+    machineType: MachineType.Assembly,
+  },
   "Logistic science pack": {
     inputs: { Inserter: 1, "Transport belt": 1 },
     duration: 6,

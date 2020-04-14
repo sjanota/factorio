@@ -22,13 +22,13 @@ const CollapsibleCard = ({
   const [collapsed, setCollapsed] = useState(initallyCollapsed);
   return (
     <Card {...props}>
-      <Card.Header className="d-flex justify-content-between">
+      <Card.Header
+        className="d-flex justify-content-between"
+        onClick={() => setCollapsed((s) => !s)}
+      >
         <div>{header}</div>
         <div>
-          <CollapseButton
-            collapsed={collapsed}
-            onClick={() => setCollapsed((s) => !s)}
-          />
+          <CollapseButton collapsed={collapsed} />
         </div>
       </Card.Header>
       {!!collapsed || children}
