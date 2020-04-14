@@ -3,6 +3,8 @@ import { ListGroup, Row, Col } from "react-bootstrap";
 import { requiredBelt } from "../requiredBelt";
 import { RequiredMachinesForItem } from "./RequiredMachines";
 import "./IngredientsList.css";
+import { PcsPerMin } from "../../../components/PcsPerMin";
+import { BeltTypeHint } from "./BeltTypeHint";
 
 export const IngredientsList = ({ ingredients }) => {
   return (
@@ -26,11 +28,14 @@ const IngredientsRow = ({ item, targetSupply }) => {
     >
       <Row>
         <Col sm={5}>{item}</Col>
-        <Col sm={4}>
-          {targetSupply} <small>pcs/min</small>
+        <Col sm={3}>
+          {targetSupply} <PcsPerMin />
+        </Col>
+        <Col sm={3}>
+          <RequiredMachinesForItem item={item} targetSupply={targetSupply} />
         </Col>
         <Col>
-          <RequiredMachinesForItem item={item} targetSupply={targetSupply} />
+          <BeltTypeHint beltType={beltType} />
         </Col>
       </Row>
     </ListGroup.Item>

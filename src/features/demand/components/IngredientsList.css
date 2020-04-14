@@ -2,34 +2,18 @@
   background-color: inherit;
 }
 
-.ingredients-row.list-group-item.belt-normal {
-  background-image: linear-gradient(
-    to left,
-    rgb(255, 165, 0, 0.2),
-    rgb(0, 0, 0, 0)
-  );
+.belt-type-normal {
+  color: rgb(255, 165, 0);
 }
 
-.ingredients-row.list-group-item.belt-fast {
-  background-image: linear-gradient(
-    to left,
-    rgb(255, 0, 0, 0.2),
-    rgb(0, 0, 0, 0)
-  );
+.belt-type-fast {
+  color: rgb(255, 0, 0);
 }
 
-.ingredients-row.list-group-item.belt-express {
-  background-image: linear-gradient(
-    to left,
-    rgb(0, 0, 255, 0.2),
-    rgb(0, 0, 0, 0)
-  );
+.belt-type-express {
+  color: rgb(0, 0, 255);
 }
 
-.ingredients-row.list-group-item.belt-overloaded {
-  background-image: linear-gradient(
-    to left,
-    rgb(0, 0, 0, 0.2),
-    rgb(0, 0, 0, 0)
-  );
+.belt-type-overloaded {
+  color: rgb(0, 0, 0);
 }

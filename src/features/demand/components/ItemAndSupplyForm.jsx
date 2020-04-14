@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Form, Col, InputGroup } from "react-bootstrap";
 import { RequiredMachinesForItem } from "./RequiredMachines";
+import { PcsPerMin } from "../../../components/PcsPerMin";
 
 export const ItemAndSupplyForm = ({
   setTargetSupply,
@@ -39,7 +40,7 @@ export const ItemAndSupplyForm = ({
             )}
           </Form.Control>
         </Form.Group>
-        <Form.Group as={Col} sm={4} className="mb-0">
+        <Form.Group as={Col} sm={3} className="mb-0">
           <InputGroup>
             <Form.Control
               type="number"
@@ -51,12 +52,12 @@ export const ItemAndSupplyForm = ({
             />
             <InputGroup.Append>
               <InputGroup.Text>
-                <small>pcs/min</small>
+                <PcsPerMin />
               </InputGroup.Text>
             </InputGroup.Append>
           </InputGroup>
         </Form.Group>
-        <Col className="d-flex align-items-center">
+        <Col className="d-flex align-items-center pl-3">
           <RequiredMachinesForItem item={item} targetSupply={targetSupply} />
         </Col>
       </Form.Row>
