@@ -1,14 +1,11 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import {
-  selectRecipe,
-  selectRecipes,
-  MachineType,
-} from "../recipes/recipesSlice";
+import { selectRecipe, selectRecipes } from "../recipes/recipesSlice";
 import { recipeInputDemand } from "./recipeInputDemand";
 import { requiredMachines } from "./requiredMachines";
 import { selectMachineGradeForRecipe } from "../machineGrades/machineGradesSlice";
 import { gatherAllRecipeDemands } from "./gatherAllRecipeDemands";
 import { selectScience } from "../science/scienceSlice";
+import { MachineType } from "../recipes/MachineType";
 
 const slice = createSlice({
   name: "demand",

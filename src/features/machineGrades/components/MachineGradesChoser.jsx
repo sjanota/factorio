@@ -4,7 +4,7 @@ import {
   selectMachineGrades,
   setGrade,
 } from "../machineGradesSlice";
-import { MachineType } from "../../recipes/recipesSlice";
+import { MachineType } from "../../recipes/MachineType";
 import { connect } from "react-redux";
 import { Form, Row, Col, Card } from "react-bootstrap";
 import CollapsibleCard from "../../../components/CollapsibleCard";

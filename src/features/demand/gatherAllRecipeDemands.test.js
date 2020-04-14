@@ -1,6 +1,7 @@
 import { gatherAllRecipeDemands } from "./gatherAllRecipeDemands";
 
-import { recipes } from "../recipes/recipesSlice";
+import { recipes } from "../recipes/recipes";
+
 describe("gatherAllRecipeDemands", () => {
   it("gathers demands for recipe wihtout inputs", () => {
     expect(gatherAllRecipeDemands(recipes["Iron ore"], recipes, 120)).toEqual(

@@ -1,5 +1,6 @@
 import { createSlice, createSelector } from "@reduxjs/toolkit";
-import { MachineType, selectRecipe } from "../recipes/recipesSlice";
+import { selectRecipe } from "../recipes/recipesSlice";
+import { MachineType } from "../recipes/MachineType";
 
 export const MachineGrades = {
   [MachineType.Assembly]: [
