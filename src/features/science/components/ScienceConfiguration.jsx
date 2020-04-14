@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
 import { setMiningLevel, selectScience } from "../scienceSlice";
 import { connect } from "react-redux";
 import { Form, Row, Col, Card } from "react-bootstrap";
 import CollapsibleCard from "../../../components/CollapsibleCard";
 
 const ScienceConfiguration = ({ science, setMiningLevel }) => {
+  const miningLevel = useRef();
+
+  function onSubmit(e) {
+    e.preventDefault();
+    setMiningLevel(parseInt(miningLevel.current.value));
+  }
+
   return (
     <CollapsibleCard
       header="Science"
@@ -13,7 +20,7 @@ const ScienceConfiguration = ({ science, setMiningLevel }) => {
       initallyCollapsed={true}
     >
       <Card.Body>
-        <Form onSubmit={(e) => e.preventDefault()}>
+        <Form onSubmit={onSubmit}>
           <Form.Group as={Row}>
             <Form.Label column sm={2}>
               Mining
@@ -23,8 +30,8 @@ const ScienceConfiguration = ({ science, setMiningLevel }) => {
                 type="number"
                 step="1"
                 min="0"
-                value={science.mining}
-                onChange={(e) => setMiningLevel(parseInt(e.target.value))}
+                defaultValue={science.mining}
+                ref={miningLevel}
               />
             </Col>
           </Form.Group>

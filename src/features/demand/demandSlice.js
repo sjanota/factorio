@@ -1,9 +1,14 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { selectRecipe, selectRecipes } from "../recipes/recipesSlice";
+import {
+  selectRecipe,
+  selectRecipes,
+  MachineType,
+} from "../recipes/recipesSlice";
 import { recipeInputDemand } from "./recipeInputDemand";
 import { requiredMachines } from "./requiredMachines";
 import { selectMachineGradeForRecipe } from "../machineGrades/machineGradesSlice";
 import { gatherAllRecipeDemands } from "./gatherAllRecipeDemands";
+import { selectScience } from "../science/scienceSlice";
 
 const slice = createSlice({
   name: "demand",
@@ -41,9 +46,18 @@ export const selectAllIngredientsDemandForItem = createSelector(
 );
 
 export const selectRequiredMachinesForRecipe = createSelector(
-  [selectRecipe, selectMachineGradeForRecipe, (_, props) => props.targetSupply],
-  (recipe, machine, targetSupply) => {
+  [
+    selectRecipe,
+    selectMachineGradeForRecipe,
+    selectScience,
+    (_, props) => props.targetSupply,
+  ],
+  (recipe, machine, science, targetSupply) => {
     if (!recipe) return;
-    return requiredMachines(recipe, targetSupply, machine.speed);
+    let speed = machine.speed;
+    if (recipe.machineType === MachineType.Drill) {
+      speed *= 1 + science.mining * 0.1;
+    }
+    return requiredMachines(recipe, targetSupply, speed);
   }
 );
