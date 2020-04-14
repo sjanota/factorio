@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/factorio/static/css/main.4a9dbcc4.chunk.css",
+    "main.js": "/factorio/static/js/main.e82de6ad.chunk.js",
+    "main.js.map": "/factorio/static/js/main.e82de6ad.chunk.js.map",
+    "runtime-main.js": "/factorio/static/js/runtime-main.73147325.js",
+    "runtime-main.js.map": "/factorio/static/js/runtime-main.73147325.js.map",
+    "static/css/2.de424728.chunk.css": "/factorio/static/css/2.de424728.chunk.css",
+    "static/js/2.670e1fbe.chunk.js": "/factorio/static/js/2.670e1fbe.chunk.js",
+    "static/js/2.670e1fbe.chunk.js.map": "/factorio/static/js/2.670e1fbe.chunk.js.map",
+    "index.html": "/factorio/index.html",
+    "precache-manifest.860a3397a8a00d3f8b87424fa616e5e2.js": "/factorio/precache-manifest.860a3397a8a00d3f8b87424fa616e5e2.js",
+    "service-worker.js": "/factorio/service-worker.js",
+    "static/css/2.de424728.chunk.css.map": "/factorio/static/css/2.de424728.chunk.css.map",
+    "static/css/main.4a9dbcc4.chunk.css.map": "/factorio/static/css/main.4a9dbcc4.chunk.css.map",
+    "static/js/2.670e1fbe.chunk.js.LICENSE.txt": "/factorio/static/js/2.670e1fbe.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.73147325.js",
+    "static/css/2.de424728.chunk.css",
+    "static/js/2.670e1fbe.chunk.js",
+    "static/css/main.4a9dbcc4.chunk.css",
+    "static/js/main.e82de6ad.chunk.js"
+  ]
+}
