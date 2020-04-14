@@ -8,6 +8,7 @@ const ScienceConfiguration = ({ science, setMiningLevel }) => {
   const miningLevel = useRef();
 
   function onSubmit(e) {
+    console.log("a");
     e.preventDefault();
     setMiningLevel(parseInt(miningLevel.current.value));
   }
