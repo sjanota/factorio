@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3a24c838749e7e00b433493af212fd7d",
+    "revision": "9eaa008ef850596d680a9e770dedf088",
     "url": "/factorio/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/factorio/static/css/2.de424728.chunk.css"
   },
   {
-    "revision": "55ea7042b1040a859d08",
+    "revision": "03ae6fd10d8627a50e18",
     "url": "/factorio/static/css/main.4a9dbcc4.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/factorio/static/js/2.65ce6343.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "55ea7042b1040a859d08",
-    "url": "/factorio/static/js/main.1c3c15de.chunk.js"
+    "revision": "03ae6fd10d8627a50e18",
+    "url": "/factorio/static/js/main.c2857180.chunk.js"
   },
   {
     "revision": "85a08ed3ec0c0df6c5d2",
