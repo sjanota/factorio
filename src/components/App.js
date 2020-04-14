@@ -4,12 +4,14 @@ import { CurrentMachineGradesChoser } from "../features/machineGrades/components
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { CurrentScienceConfiguration } from "../features/science/components/ScienceConfiguration";
+import { LabsCalculator } from "../features/labs/components/LabsCalculator";
 
 function App() {
   return (
     <div className="App">
       <CurrentScienceConfiguration />
       <CurrentMachineGradesChoser />
+      <LabsCalculator />
       <DemandCalculator />
     </div>
   );
