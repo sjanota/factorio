@@ -51,10 +51,8 @@ const LabsConfiguration = ({
   const speedBonusRef = useRef();
 
   function onSubmit(event) {
-    console.log(event);
     event.preventDefault();
 
-    console.log(labsCountRef.current.value, labsCount);
     const newLabsCount = parseInt(labsCountRef.current.value);
     if (newLabsCount !== labsCount) {
       setLabsCount(newLabsCount);
