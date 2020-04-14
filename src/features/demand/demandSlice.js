@@ -37,7 +37,8 @@ export const selectInputsForRecipe = createSelector(
 export const selectAllIngredientsDemandForItem = createSelector(
   [selectRecipe, selectRecipes, (_, props) => props.targetSupply],
   (recipe, availableRecipes, targetSupply) => {
-    if (!recipe || !recipe.inputs) return;
+    if (!recipe) return;
+    if (!recipe.inputs) return {};
     return gatherAllRecipeDemands(recipe, availableRecipes, targetSupply);
   }
 );
