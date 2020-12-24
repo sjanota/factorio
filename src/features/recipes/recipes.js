@@ -1,6 +1,12 @@
 import { MachineType } from "./MachineType";
 
 export const recipes = {
+  "Chemical science pack": {
+    inputs: { Sulfur: 1, "Advanced circuit": 3, "Engine unit": 2 },
+    duration: 24,
+    products: 2,
+    machineType: MachineType.Assembly,
+  },
   "Military science pack": {
     inputs: { Wall: 2, Grenade: 1, "Piercing rounds magazine": 1 },
     duration: 10,
