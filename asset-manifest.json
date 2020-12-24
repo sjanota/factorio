@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/factorio/static/css/main.4a9dbcc4.chunk.css",
-    "main.js": "/factorio/static/js/main.41a25b60.chunk.js",
-    "main.js.map": "/factorio/static/js/main.41a25b60.chunk.js.map",
+    "main.js": "/factorio/static/js/main.8289fb0b.chunk.js",
+    "main.js.map": "/factorio/static/js/main.8289fb0b.chunk.js.map",
     "runtime-main.js": "/factorio/static/js/runtime-main.73147325.js",
     "runtime-main.js.map": "/factorio/static/js/runtime-main.73147325.js.map",
     "static/css/2.de424728.chunk.css": "/factorio/static/css/2.de424728.chunk.css",
     "static/js/2.a331c455.chunk.js": "/factorio/static/js/2.a331c455.chunk.js",
     "static/js/2.a331c455.chunk.js.map": "/factorio/static/js/2.a331c455.chunk.js.map",
     "index.html": "/factorio/index.html",
-    "precache-manifest.7711a8c8064e506c53a05980cb58202f.js": "/factorio/precache-manifest.7711a8c8064e506c53a05980cb58202f.js",
+    "precache-manifest.4b75e9ca4689aa95022d2c6905815d42.js": "/factorio/precache-manifest.4b75e9ca4689aa95022d2c6905815d42.js",
     "service-worker.js": "/factorio/service-worker.js",
     "static/css/2.de424728.chunk.css.map": "/factorio/static/css/2.de424728.chunk.css.map",
     "static/css/main.4a9dbcc4.chunk.css.map": "/factorio/static/css/main.4a9dbcc4.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.de424728.chunk.css",
     "static/js/2.a331c455.chunk.js",
     "static/css/main.4a9dbcc4.chunk.css",
-    "static/js/main.41a25b60.chunk.js"
+    "static/js/main.8289fb0b.chunk.js"
   ]
 }
