@@ -3,7 +3,7 @@ import { MachineType } from "./MachineType";
 export const recipes = {
   "Military science pack": {
     inputs: { Wall: 2, Grenade: 1, "Piercing rounds magazine": 1 },
-    duration: 0.5,
+    duration: 10,
     products: 2,
     machineType: MachineType.Assembly,
   },
