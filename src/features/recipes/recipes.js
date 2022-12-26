@@ -13,6 +13,34 @@ export const recipes = {
     products: 2,
     machineType: MachineType.Assembly,
   },
+  "Advanced circuit": {
+    machineType: MachineType.Assembly,
+    inputs: { "Electronic circuit": 2, "Copper wire": 4, "Plastic bar": 2 },
+    duration: 6,
+    products: 1,
+  },
+  "Plastic bar": {
+    machineType: MachineType.ChemicalPlant,
+    duration: 1,
+    products: 2,
+  },
+  Sulfur: {
+    machineType: MachineType.ChemicalPlant,
+    duration: 1,
+    products: 2,
+  },
+  "Engine unit": {
+    machineType: MachineType.Assembly,
+    inputs: { "Steel plate": 1, "Iron gear wheel": 4, Pipe: 2 },
+    duration: 10,
+    products: 1,
+  },
+  Pipe: {
+    machineType: MachineType.Assembly,
+    inputs: { "Iron plate": 1 },
+    duration: 0.5,
+    products: 1,
+  },
   Stone: {
     duration: 1,
     products: 1,

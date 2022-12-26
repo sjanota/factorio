@@ -17,6 +17,7 @@ export const MachineGrades = {
     { speed: 2, name: "Steel" },
     { speed: 2, name: "Electric" },
   ],
+  [MachineType.ChemicalPlant]: [{ speed: 1, name: "Regular" }],
 };
 
 const slice = createSlice({

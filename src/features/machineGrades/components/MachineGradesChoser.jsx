@@ -10,6 +10,7 @@ import { Form, Row, Col, Card } from "react-bootstrap";
 import CollapsibleCard from "../../../components/CollapsibleCard";
 
 const MachineGradesChoser = ({ currentMachineGrades, setGrade }) => {
+  console.log(Object.keys(MachineType), Object.keys(MachineGrades));
   return (
     <CollapsibleCard
       header="Machine grades"
